@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var cors = require("cors");
 var author = require("./services/authorServices");
 var app = express();
+var PORT = process.env.PORT || 3000;
 
 
 app.use(cors());
@@ -20,4 +21,4 @@ mongoose.connect(
   app.use("/author", author.router);
   app.use(express.static(__dirname + '/site'));
 
-app.listen(8080);
+app.listen(PORT);
