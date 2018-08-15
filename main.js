@@ -5,6 +5,7 @@ var cors = require("cors");
 var author = require("./services/authorServices");
 var app = express();
 
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -17,5 +18,6 @@ mongoose.connect(
   }
 ),
   app.use("/author", author.router);
+  app.use(express.static(__dirname + '/site'));
 
 app.listen(8080);
